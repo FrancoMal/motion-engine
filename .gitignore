@@ -1,0 +1,30 @@
+# Salidas de render: nunca se versionan, se regeneran
+out/
+build/
+stills/
+*.mp4
+*.mov
+*.webm
+
+# Dependencias
+node_modules/
+
+# Audio generado (voz, efectos, musica). Los especificadores SI se versionan
+# (assets/vo/guion.md, assets/vo/cues.json, assets/sfx/spec.json); los wav y
+# mp3 se regeneran desde esos archivos.
+assets/vo/*.wav
+assets/vo/*.mp3
+assets/sfx/*.wav
+assets/sfx/*.mp3
+assets/music/*.wav
+assets/music/*.mp3
+
+# Referencias privadas (capturas personales, fotogramas de terceros)
+referencias-*/
+referencias/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+.cache/

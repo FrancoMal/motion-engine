@@ -1,0 +1,10 @@
+{
+  "name": "trazo-inicial-videos",
+  "private": true,
+  "type": "module",
+  "description": "Piezas de motion graphics de Trazo Inicial, generadas frame a frame por código (canvas 2D en Node) y ensambladas con ffmpeg.",
+  "scripts": {},
+  "dependencies": {
+    "@napi-rs/canvas": "1.0.9"
+  }
+}

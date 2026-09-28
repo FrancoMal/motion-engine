@@ -1,0 +1,775 @@
+{
+  "_nota": [
+    "Efectos de sonido. Cada id es un archivo: assets/sfx/<id>.mp3 (o .wav). Un mismo efecto se reutiliza en todos sus cues; no hace falta generar duplicados.",
+    "SINCRONÍA: el cue es el frame exacto del evento (el toque, la tarjeta, el PDF que cae). Los tiempos de toque salen del mismo guion que mueve el cursor (pieces/tutorial/script.js). Para que caigan justo, cada archivo tiene que arrancar con su transitorio, con menos de 10 ms de silencio al principio. El único que se adelanta a propósito es el cambio de paso (0,15 s antes de la tarjeta), porque el whoosh tiene que llegar a su punto máximo cuando aparece la tarjeta.",
+    "GANANCIA: gain_db es relativo al archivo normalizado a -1 dBFS de pico (la mezcla lo normaliza antes de aplicar la ganancia). Referencia: la voz queda a -16 LUFS integrados; los toques quedan unos 20 dB por debajo de la voz, presentes pero chicos.",
+    "CRITERIO: solo suena lo que significa algo: el toque donde la docente toca, el cambio de paso, el momento de generar, los informes listos, el informe que se abre y la placa final. Nada en el tipeo, en los movimientos de cámara ni en el cursor que se desplaza.",
+    "FAMILIA: todos comparten el mismo carácter (madera, marimba, papel, campanitas suaves; cálido, sin estridencia) para que sirvan en las cinco piezas. La columna usos dice dónde se van a reutilizar en el retrofit."
+  ],
+  "catalogo": [
+    {
+      "id": "sfx-01",
+      "nombre": "toque",
+      "prompt": "soft UI click, crisp and short, clean interface tap, warm and muted, no reverb",
+      "duracion_s": 0.3,
+      "usos": "cada vez que el cursor toca un botón o un campo",
+      "recorte_inicio_s": 0.135,
+      "nota_recorte": "El archivo generado trae un golpe chico al arrancar y el clic fuerte recién a los 145 ms. La mezcla recorta los primeros 135 ms para que el clic caiga en el frame del toque. Si se regenera con el golpe al principio, este recorte se saca."
+    },
+    {
+      "id": "sfx-02",
+      "nombre": "cambio de paso",
+      "prompt": "gentle airy whoosh with a single soft wooden marimba note, calm page turn transition, subtle and warm",
+      "duracion_s": 1,
+      "usos": "entrada de cada paso (tarjeta \"Paso N de 7\"); en las otras piezas, costuras entre escenas"
+    },
+    {
+      "id": "sfx-03",
+      "nombre": "archivo soltado",
+      "prompt": "soft paper sheet sliding and settling on a wooden desk, short, gentle, close",
+      "duracion_s": 0.7,
+      "usos": "el PDF cae en la zona de carga; en Casos de uso, hojas que caen en la pila"
+    },
+    {
+      "id": "sfx-04",
+      "nombre": "generar",
+      "prompt": "warm soft shimmer rising, gentle chimes sparkle, calm and understated, no whoosh, no bass",
+      "duracion_s": 1.6,
+      "usos": "Generar Formulario y Empezar (el momento en que Trazo Inicial trabaja)"
+    },
+    {
+      "id": "sfx-05",
+      "nombre": "listo",
+      "prompt": "gentle notification chime, warm, two ascending notes, soft marimba, short",
+      "duracion_s": 1,
+      "usos": "los informes terminan (6/6); en Funcionalidades, la notificación del celular"
+    },
+    {
+      "id": "sfx-06",
+      "nombre": "se abre el informe",
+      "prompt": "single soft paper page flip, clean, close, quiet",
+      "duracion_s": 0.5,
+      "usos": "se abre un informe para leerlo"
+    },
+    {
+      "id": "sfx-07",
+      "nombre": "placa final",
+      "prompt": "warm resolving chime, soft felt piano note with a gentle bell, calm ending, faint pen stroke on paper at the start",
+      "duracion_s": 2.5,
+      "usos": "placa final (logo, claim y dirección); la misma en las cinco piezas"
+    }
+  ],
+  "cues": {
+    "tutorial": {
+      "duracion_s": 161,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 6.35,
+          "gain_db": -18,
+          "que": "paso 1"
+        },
+        {
+          "id": "sfx-01",
+          "at": 10,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 17,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 19.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 22,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-02",
+          "at": 26.35,
+          "gain_db": -18,
+          "que": "paso 2"
+        },
+        {
+          "id": "sfx-01",
+          "at": 29.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 31,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 35.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-02",
+          "at": 41.85,
+          "gain_db": -18,
+          "que": "paso 3"
+        },
+        {
+          "id": "sfx-01",
+          "at": 45,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 47.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-03",
+          "at": 57.2,
+          "gain_db": -16,
+          "que": "PDF soltado en la zona de carga"
+        },
+        {
+          "id": "sfx-01",
+          "at": 66.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 66.4,
+          "gain_db": -18,
+          "que": "Generar Formulario"
+        },
+        {
+          "id": "sfx-02",
+          "at": 69.35,
+          "gain_db": -18,
+          "que": "paso 4"
+        },
+        {
+          "id": "sfx-01",
+          "at": 75.3,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 81,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 84.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-02",
+          "at": 86.35,
+          "gain_db": -18,
+          "que": "paso 5"
+        },
+        {
+          "id": "sfx-01",
+          "at": 89.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 92.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 95.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 103,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-02",
+          "at": 114.85,
+          "gain_db": -18,
+          "que": "paso 6"
+        },
+        {
+          "id": "sfx-01",
+          "at": 118,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 124.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 126.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 128.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 128.6,
+          "gain_db": -14,
+          "que": "Empezar: se generan los informes"
+        },
+        {
+          "id": "sfx-05",
+          "at": 134,
+          "gain_db": -14,
+          "que": "6/6: los informes están listos"
+        },
+        {
+          "id": "sfx-02",
+          "at": 137.85,
+          "gain_db": -18,
+          "que": "paso 7"
+        },
+        {
+          "id": "sfx-01",
+          "at": 142.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-06",
+          "at": 143,
+          "gain_db": -18,
+          "que": "se abre el informe de Alex"
+        },
+        {
+          "id": "sfx-01",
+          "at": 148.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 151.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-07",
+          "at": 154.4,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    },
+    "reel-planificacion": {
+      "duracion_s": 23.73,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 0.13,
+          "gain_db": -20,
+          "que": "gancho: todo se rebobina hacia el chat"
+        },
+        {
+          "id": "sfx-01",
+          "at": 2.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 3.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 3.9,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 4.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 4.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 4.8,
+          "gain_db": -14,
+          "que": "Generar planificaciones"
+        },
+        {
+          "id": "sfx-01",
+          "at": 7.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-06",
+          "at": 7.4,
+          "gain_db": -20,
+          "que": "la tarjeta se abre en el documento"
+        },
+        {
+          "id": "sfx-01",
+          "at": 10.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-05",
+          "at": 10.4,
+          "gain_db": -18,
+          "que": "aparece la propuesta nueva"
+        },
+        {
+          "id": "sfx-02",
+          "at": 11.4,
+          "gain_db": -20,
+          "que": "el documento se pliega en archivo"
+        },
+        {
+          "id": "sfx-01",
+          "at": 13.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 13.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-03",
+          "at": 15,
+          "gain_db": -16,
+          "que": "el archivo cae en el período"
+        },
+        {
+          "id": "sfx-06",
+          "at": 15.6,
+          "gain_db": -18,
+          "que": "aparece el informe"
+        },
+        {
+          "id": "sfx-07",
+          "at": 19.8,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    },
+    "reel-formularios": {
+      "duracion_s": 21.33,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 0.13,
+          "gain_db": -20,
+          "que": "gancho: el formulario se rebobina hasta la hoja"
+        },
+        {
+          "id": "sfx-03",
+          "at": 1.8,
+          "gain_db": -16,
+          "que": "la hoja cae en la zona de carga"
+        },
+        {
+          "id": "sfx-01",
+          "at": 2.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 3.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 3.6,
+          "gain_db": -16,
+          "que": "Generar Formulario"
+        },
+        {
+          "id": "sfx-01",
+          "at": 5.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 6.6,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 8.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 9.3,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 12,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 12,
+          "gain_db": -14,
+          "que": "Generar informes"
+        },
+        {
+          "id": "sfx-05",
+          "at": 14.4,
+          "gain_db": -14,
+          "que": "6/6: todo listo"
+        },
+        {
+          "id": "sfx-07",
+          "at": 17.4,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    },
+    "reel-informes": {
+      "duracion_s": 19.53,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 0.13,
+          "gain_db": -20,
+          "que": "gancho: los informes se juntan en la pila"
+        },
+        {
+          "id": "sfx-01",
+          "at": 1.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 1.2,
+          "gain_db": -16,
+          "que": "Generar informes"
+        },
+        {
+          "id": "sfx-01",
+          "at": 4.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 5.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 7.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 8.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-05",
+          "at": 8.6,
+          "gain_db": -14,
+          "que": "Aplicado a los seis"
+        },
+        {
+          "id": "sfx-06",
+          "at": 10,
+          "gain_db": -18,
+          "que": "se abre el informe de Alex"
+        },
+        {
+          "id": "sfx-01",
+          "at": 11.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 13.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-07",
+          "at": 15.6,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    },
+    "reel-criterio": {
+      "duracion_s": 23.13,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 0.13,
+          "gain_db": -20,
+          "que": "gancho: el informe corregido se rebobina al formulario"
+        },
+        {
+          "id": "sfx-01",
+          "at": 1.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-02",
+          "at": 3.6,
+          "gain_db": -20,
+          "que": "las observaciones despegan del formulario"
+        },
+        {
+          "id": "sfx-06",
+          "at": 3.93,
+          "gain_db": -20,
+          "que": "aparece el informe"
+        },
+        {
+          "id": "sfx-03",
+          "at": 4.67,
+          "gain_db": -18,
+          "que": "la primera observación cae en su oración"
+        },
+        {
+          "id": "sfx-03",
+          "at": 4.97,
+          "gain_db": -20,
+          "que": "la segunda observación cae en su oración"
+        },
+        {
+          "id": "sfx-06",
+          "at": 7.8,
+          "gain_db": -20,
+          "que": "aparece la vista previa"
+        },
+        {
+          "id": "sfx-01",
+          "at": 10.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 11.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-05",
+          "at": 11.6,
+          "gain_db": -14,
+          "que": "Aplicado a los dos elegidos"
+        },
+        {
+          "id": "sfx-06",
+          "at": 13.2,
+          "gain_db": -18,
+          "que": "se abre el informe de Alex"
+        },
+        {
+          "id": "sfx-01",
+          "at": 14.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 16,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 16.8,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-03",
+          "at": 17,
+          "gain_db": -18,
+          "que": "cae el .docx descargado"
+        },
+        {
+          "id": "sfx-07",
+          "at": 19.2,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    },
+    "reel-hoy": {
+      "duracion_s": 20.9,
+      "lineas": [
+        {
+          "id": "sfx-02",
+          "at": 0.13,
+          "gain_db": -20,
+          "que": "gancho: los tres informes se rebobinan hasta la sala vacía"
+        },
+        {
+          "id": "sfx-01",
+          "at": 2.1,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-06",
+          "at": 2.4,
+          "gain_db": -20,
+          "que": "la sala se vuelve lista de alumnos"
+        },
+        {
+          "id": "sfx-01",
+          "at": 2.7,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-03",
+          "at": 5.4,
+          "gain_db": -16,
+          "que": "el PDF cae en el período"
+        },
+        {
+          "id": "sfx-01",
+          "at": 6.3,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 6.3,
+          "gain_db": -16,
+          "que": "Generar Formulario"
+        },
+        {
+          "id": "sfx-01",
+          "at": 8.4,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 9.9,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 10.2,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 10.5,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-01",
+          "at": 11.1,
+          "gain_db": -22,
+          "que": "toque"
+        },
+        {
+          "id": "sfx-04",
+          "at": 11.1,
+          "gain_db": -14,
+          "que": "Generar informes (3)"
+        },
+        {
+          "id": "sfx-05",
+          "at": 11.63,
+          "gain_db": -14,
+          "que": "los tres informes listos"
+        },
+        {
+          "id": "sfx-07",
+          "at": 15.9,
+          "gain_db": -12,
+          "que": "placa final"
+        }
+      ]
+    }
+  },
+  "musica": {
+    "archivo": "assets/music/tutorial.mp3 (o .wav)",
+    "duracion_s": 165,
+    "caracter": "Cálida, calma y amable; que acompañe sin pedir atención. Una cama de fondo para seguir un paso a paso, no una canción. Tonalidad mayor, sin tensión ni clímax, sin cambios bruscos de energía a lo largo de los 2:41. Nada épico, nada de trailer.",
+    "tempo": "85 a 92 BPM, pulso estable (que no se sienta que apura).",
+    "instrumentacion": "Piano con fieltro o marimba suave llevando una figura simple y repetitiva; guitarra acústica punteada o kalimba de apoyo; un pad muy suave de fondo; percusión mínima o ninguna (a lo sumo escobillas o un shaker muy bajo). Sin voces, sin bajo pesado, sin sintetizadores brillantes. Que conviva con la marimba y el papel de los efectos.",
+    "forma": "Entrada suave en los primeros 2 a 3 s (arranca con el título), meseta pareja durante todo el tutorial y un final que resuelve en la tónica cerca del segundo 158 a 162, con una cola natural. Si el generador no puede terminar resolviendo, que sea pareja hasta el final y la cortamos con un fade.",
+    "mezcla": "Es una cama: -30 LUFS aprox. debajo de la voz. Con ducking: baja 8 dB mientras habla la voz (ataque 150 ms, relevo 600 ms) y vuelve a subir en los silencios, en la entrada y en la placa final. Si pelea con la voz, pierde la música.",
+    "reuso": "Para las cuatro piezas cortas (30-40 s) conviene pedir más adelante una variante de la misma familia y tempo, de 40 s con final resuelto. No hace falta ahora."
+  },
+  "musica_reels": {
+    "archivo": "assets/music/reels.mp3 (una sola cama para los tres reels)",
+    "por_que_una_sola": "Los tres se van a ver seguidos en el mismo perfil: una misma cama los hace sonar a una misma marca, y cada reel la corta a su largo. Es de la misma familia que la del tutorial, un poco más viva.",
+    "duracion_s": 30,
+    "tempo": "100 BPM exactos, 4/4, sin cambios de tempo. El primer tiempo fuerte en el segundo 0,0, sin intro en silencio: los golpes visuales de los reels caen en esa grilla (un beat cada 0,6 s).",
+    "caracter": "Cálida y luminosa, con un poco más de impulso que la del tutorial: optimista, que empuje sin apurar. Tonalidad mayor. Nada épico, sin drops ni subidas de trailer.",
+    "instrumentacion": "La misma familia: piano con fieltro y marimba llevando un patrón rítmico simple, kalimba, pad suave; esta vez con percusión liviana (shaker o palmas suaves marcando el pulso) para que se sienta el ritmo. Sin voces, sin bajo pesado.",
+    "forma": "Pareja de punta a punta (la cortamos con un fundido al largo de cada reel: 23,7 s, 21,3 s, 19,5 s, 23,1 s y 20,9 s). Sin final resuelto: no se va a usar.",
+    "estado": "Ya generada y aceptada: reels.mp3 (24,19 s, estirada a 100 BPM). Los cinco reels entran en ella; no hace falta generar música nueva.",
+    "mezcla": "Igual que el tutorial: -30 LUFS debajo de la voz, ducking de -8 dB mientras habla."
+  }
+}

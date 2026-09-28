@@ -1,0 +1,118 @@
+{
+  "_nota": "Locución por pieza. duracion_s es la del render (16:9 y 9:16 duran igual). at = entrada de la línea, objetivo = duración prevista a ritmo pausado, maximo = lo que entra sin pisar la línea siguiente (0,25 s de aire) ni el final del video (0,6 s de cola). Todo en segundos. mux.mjs --check valida esto contra el mp4 y los wav.",
+  "funcionalidades": {
+    "duracion_s": 36.333,
+    "lineas": [
+      { "id": "func-01", "at": 0.5, "objetivo": 4.7, "maximo": 5.55 },
+      { "id": "func-02", "at": 6.3, "objetivo": 3.9, "maximo": 4.65 },
+      { "id": "func-03", "at": 11.2, "objetivo": 4.2, "maximo": 4.85 },
+      { "id": "func-04", "at": 16.3, "objetivo": 4.8, "maximo": 4.95 },
+      { "id": "func-05", "at": 21.5, "objetivo": 4.3, "maximo": 4.45 },
+      { "id": "func-06", "at": 26.2, "objetivo": 3.7, "maximo": 3.95 },
+      { "id": "func-07", "at": 30.4, "objetivo": 2.7, "maximo": 2.95 },
+      { "id": "func-08", "at": 33.6, "objetivo": 1.6, "maximo": 2.13 }
+    ]
+  },
+  "casos-de-uso": {
+    "duracion_s": 33.5,
+    "lineas": [
+      { "id": "casos-01", "at": 0.4, "objetivo": 3.7, "maximo": 3.85 },
+      { "id": "casos-02", "at": 4.5, "objetivo": 3.8, "maximo": 3.95 },
+      { "id": "casos-03", "at": 8.7, "objetivo": 3.3, "maximo": 3.65 },
+      { "id": "casos-04", "at": 12.6, "objetivo": 4.9, "maximo": 6.15 },
+      { "id": "casos-05", "at": 19, "objetivo": 2.4, "maximo": 4.05 },
+      { "id": "casos-06", "at": 23.3, "objetivo": 3.8, "maximo": 4.05 },
+      { "id": "casos-07", "at": 27.6, "objetivo": 2.7, "maximo": 2.95 },
+      { "id": "casos-08", "at": 30.8, "objetivo": 1.6, "maximo": 2.1 }
+    ]
+  },
+  "tutorial": {
+    "duracion_s": 161,
+    "lineas": [
+      { "id": "tuto-01", "at": 0.8, "objetivo": 4.6, "maximo": 7.05 },
+      { "id": "tuto-02", "at": 8.1, "objetivo": 2.4, "maximo": 2.65 },
+      { "id": "tuto-03", "at": 11, "objetivo": 3.8, "maximo": 4.75 },
+      { "id": "tuto-04", "at": 16, "objetivo": 3.9, "maximo": 4.35 },
+      { "id": "tuto-05", "at": 20.6, "objetivo": 2, "maximo": 7.35 },
+      { "id": "tuto-06", "at": 28.2, "objetivo": 2, "maximo": 2.95 },
+      { "id": "tuto-07", "at": 31.4, "objetivo": 4.6, "maximo": 5.15 },
+      { "id": "tuto-08", "at": 36.8, "objetivo": 2.9, "maximo": 6.45 },
+      { "id": "tuto-09", "at": 43.5, "objetivo": 2.2, "maximo": 2.25 },
+      { "id": "tuto-10", "at": 46, "objetivo": 3.2, "maximo": 4.75 },
+      { "id": "tuto-11", "at": 51, "objetivo": 3.5, "maximo": 3.95 },
+      { "id": "tuto-12", "at": 55.2, "objetivo": 3.8, "maximo": 3.85 },
+      { "id": "tuto-13", "at": 59.3, "objetivo": 5, "maximo": 5.95 },
+      { "id": "tuto-14", "at": 65.5, "objetivo": 3.1, "maximo": 5.35 },
+      { "id": "tuto-15", "at": 71.1, "objetivo": 3.9, "maximo": 4.15 },
+      { "id": "tuto-16", "at": 75.5, "objetivo": 4, "maximo": 4.05 },
+      { "id": "tuto-17", "at": 79.8, "objetivo": 2.9, "maximo": 3.05 },
+      { "id": "tuto-18", "at": 83.1, "objetivo": 2.9, "maximo": 4.75 },
+      { "id": "tuto-19", "at": 88.1, "objetivo": 2.8, "maximo": 3.75 },
+      { "id": "tuto-20", "at": 92.1, "objetivo": 5.2, "maximo": 5.45 },
+      { "id": "tuto-21", "at": 97.8, "objetivo": 2.4, "maximo": 3.95 },
+      { "id": "tuto-22", "at": 102, "objetivo": 3.1, "maximo": 3.35 },
+      { "id": "tuto-23", "at": 105.6, "objetivo": 1.8, "maximo": 2.95 },
+      { "id": "tuto-24", "at": 108.8, "objetivo": 5.2, "maximo": 7.65 },
+      { "id": "tuto-25", "at": 116.7, "objetivo": 2.3, "maximo": 3.65 },
+      { "id": "tuto-26", "at": 120.6, "objetivo": 4.2, "maximo": 4.55 },
+      { "id": "tuto-27", "at": 125.4, "objetivo": 3, "maximo": 3.75 },
+      { "id": "tuto-28", "at": 129.4, "objetivo": 3.7, "maximo": 9.95 },
+      { "id": "tuto-29", "at": 139.6, "objetivo": 3.4, "maximo": 4.35 },
+      { "id": "tuto-30", "at": 144.2, "objetivo": 2.7, "maximo": 2.75 },
+      { "id": "tuto-31", "at": 147.2, "objetivo": 4.2, "maximo": 7.15 },
+      { "id": "tuto-32", "at": 154.6, "objetivo": 3.3, "maximo": 5.8 }
+    ]
+  },
+  "reel-planificacion": {
+    "duracion_s": 23.73,
+    "lineas": [
+      { "id": "plan-01", "at": 0.4, "objetivo": 2.1, "maximo": 2.35 },
+      { "id": "plan-02", "at": 3, "objetivo": 1.7, "maximo": 1.95 },
+      { "id": "plan-03", "at": 5.2, "objetivo": 2.1, "maximo": 3.15 },
+      { "id": "plan-04", "at": 8.6, "objetivo": 2.9, "maximo": 3.55 },
+      { "id": "plan-05", "at": 12.4, "objetivo": 4.9, "maximo": 7.25 },
+      { "id": "plan-06", "at": 19.9, "objetivo": 2.7, "maximo": 3.23 }
+    ]
+  },
+  "reel-formularios": {
+    "duracion_s": 21.33,
+    "lineas": [
+      { "id": "form-01", "at": 0.3, "objetivo": 1.9, "maximo": 1.95 },
+      { "id": "form-02", "at": 2.5, "objetivo": 2.7, "maximo": 2.75 },
+      { "id": "form-03", "at": 5.5, "objetivo": 3.2, "maximo": 3.35 },
+      { "id": "form-04", "at": 9.1, "objetivo": 1.5, "maximo": 2.05 },
+      { "id": "form-05", "at": 11.4, "objetivo": 2.4, "maximo": 5.85 },
+      { "id": "form-06", "at": 17.5, "objetivo": 2.7, "maximo": 3.23 }
+    ]
+  },
+  "reel-informes": {
+    "duracion_s": 19.53,
+    "lineas": [
+      { "id": "info-01", "at": 0.3, "objetivo": 2.5, "maximo": 2.75 },
+      { "id": "info-02", "at": 3.3, "objetivo": 3, "maximo": 3.35 },
+      { "id": "info-03", "at": 6.9, "objetivo": 2.6, "maximo": 3.15 },
+      { "id": "info-04", "at": 10.3, "objetivo": 2.7, "maximo": 5.15 },
+      { "id": "info-05", "at": 15.7, "objetivo": 2.7, "maximo": 3.23 }
+    ]
+  },
+  "reel-criterio": {
+    "duracion_s": 23.13,
+    "lineas": [
+      { "id": "crit-01", "at": 0.3, "objetivo": 3, "maximo": 3.65 },
+      { "id": "crit-02", "at": 4.2, "objetivo": 2.7, "maximo": 3.95 },
+      { "id": "crit-03", "at": 8.4, "objetivo": 4, "maximo": 4.55 },
+      { "id": "crit-04", "at": 13.2, "objetivo": 5, "maximo": 5.85 },
+      { "id": "crit-05", "at": 19.3, "objetivo": 2.7, "maximo": 3.23 }
+    ]
+  },
+  "reel-hoy": {
+    "duracion_s": 20.9,
+    "lineas": [
+      { "id": "hoy-01", "at": 0.3, "objetivo": 2.9, "maximo": 3.65 },
+      { "id": "hoy-02", "at": 4.2, "objetivo": 2.7, "maximo": 3.35 },
+      { "id": "hoy-03", "at": 7.8, "objetivo": 3.3, "maximo": 3.95 },
+      { "id": "hoy-04", "at": 12, "objetivo": 3.1, "maximo": 3.75 },
+      { "id": "hoy-05", "at": 16, "objetivo": 2.7, "maximo": 4.3 }
+    ]
+  }
+}
